@@ -6,12 +6,23 @@ const Usuario =require('../models/Usuario');
 
 const crearUsuario = async(req, res = response)=>{
 
-    // const { userName, email, password, passwordConfirm } = req.body;
+    const { userName, email, password, passwordConfirm } = req.body;
 
     try {
-        const usuario = new Usuario( req.body);
+        let usuario = await Usuario.findOne({ email });
+        
+        if (usuario) {
+            return res.status(400).json({
+                ok:false,
+                msg:'Correo ya utilizado'
+            });
+        }
+
+
+      usuario = new Usuario( req.body);
 
     await usuario.save();
+
 
 
     res.status(201).json({
