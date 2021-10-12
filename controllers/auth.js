@@ -84,9 +84,11 @@ const loginUsuario =async ( req, res = response)=>{
         const token = await generarJWT(userName, password);
 
         res.json({
-            ok:true,
-            userName,
-            password,
+            ok: true,
+            uid: usuario.id,
+            userName: usuario.userName,
+            email: usuario.email,
+            isAdmin: usuario?.isAdmin,
             token
             
         })
