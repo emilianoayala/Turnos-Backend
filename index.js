@@ -23,6 +23,7 @@ app.use( express.json() );
 
 // Rutas
 app.use('/api/auth', require('./routes/auth') );
+app.use('/api/tipoJornada', require('./routes/tipoJornada'))
 
 // Escuchar peticiones
 app.listen( process.env.PORT, () => {
