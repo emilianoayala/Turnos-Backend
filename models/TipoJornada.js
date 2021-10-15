@@ -4,7 +4,7 @@ const TipoJornadaSchema = Schema({
 
     tipoJornada:{
         type: String,
-        require: true,
+        required: true,
         unique: true
     },
 

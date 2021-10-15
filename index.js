@@ -24,6 +24,7 @@ app.use( express.json() );
 // Rutas
 app.use('/api/auth', require('./routes/auth') );
 app.use('/api/tipoJornada', require('./routes/tipoJornada'));
+app.use('/api/jornada', require('./routes/jornada'));
 
 
 // Escuchar peticiones
