@@ -16,11 +16,7 @@ router.post("/newTipoJornada",
 
   router.get("/getTipos",
 
- [  
-     check('tipos', 'Campo obligatorio').not().isEmpty(),
-     validarCampos
 
- ],
   getTipos);
 
 
