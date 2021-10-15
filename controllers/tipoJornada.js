@@ -1,11 +1,22 @@
 const { response } = require('express');
 const TipoJornada =require('../models/TipoJornada');
 
+const getTipos = async ( req, res = response) => {
 
+    const tipos = await TipoJornada.find();
+
+    res.status(201).json({
+        ok: true,
+        tipos
+    })
+
+
+}
 
 const newTipoJornada = async(req, res = response)=>{
 
     const { tipoJornada } = req.body;
+
 
     try {
         let Jornada = await TipoJornada.findOne({ tipoJornada });
@@ -41,5 +52,6 @@ const newTipoJornada = async(req, res = response)=>{
 }
 
 module.exports={
-    newTipoJornada
+    newTipoJornada,
+    getTipos
 }
